@@ -1,18 +1,3 @@
-"""
-Entrypoint module, in case you use `python -mcsci_utils`.
-
-
-Why does this file exist, and why __main__? For more info, read:
-
-- https://www.python.org/dev/peps/pep-0338/
-- https://docs.python.org/2/using/cmdline.html#cmdoption-m
-- https://docs.python.org/3/using/cmdline.html#cmdoption-m
-"""
-from csci_utils.cli import main
-
-if __name__ == "__main__":
-    main()
-
 """ Start of imported code """
 
 from .hash_str import get_csci_salt, get_user_id, hash_str
@@ -57,10 +42,3 @@ def parquet_conv(filename, cwd=os.getcwd(), datasourceformat=".xlsx"):
 if __name__ == "__main__":
     call_getuserid()
     parquet_conv(filename="hashed")
-
-    # print(df.dtypes)
-    # parquetfile = df.to_parquet('hashed.parquet', engine='fastparquet', compression='GZIP', index=False)
-    # print(type(parquetfile))
-    # result = pd.read_parquet(parquetfile, engine='fastparquet', columns='hashed_id')
-
-    # TODO: read in, save as new parquet file, read back just id column, print

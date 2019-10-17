@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Tests for `pset_1` package."""
+"""Tests for `{{ cookiecutter.project_slug }}` package."""
 
 import os
 from tempfile import TemporaryDirectory
@@ -9,9 +9,9 @@ from unittest import TestCase
 import pandas as pd
 import tempfile
 
-from pset_1.hash_str import hash_str, str_to_byte, get_csci_salt
-from pset_1.io import atomic_write
-from pset_1.__main__ import call_getuserid, parquet_conv
+from {{ cookiecutter.project_slug }}.hash_str import hash_str, str_to_byte, get_csci_salt
+from {{ cookiecutter.project_slug }}.io import atomic_write
+from {{ cookiecutter.project_slug }}.__main__ import call_getuserid, parquet_conv
 
 
 class FakeFileFailure(IOError):
@@ -20,7 +20,6 @@ class FakeFileFailure(IOError):
 
 class Main_Tests(TestCase):
     def test_parquet_conv(self):
-        # with tempfile.TemporaryDirectory() as tempdirname:
         df = pd.DataFrame({"hashed_id": [1, 2, 3, 4, 5]})
         tf = tempfile.NamedTemporaryFile(delete=False, dir=os.getcwd(), suffix=".csv")
         tf.close()

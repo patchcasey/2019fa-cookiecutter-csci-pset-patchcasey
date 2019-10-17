@@ -6,17 +6,9 @@
     "project_name": "Name of the project",
 	"package_name": "{{ cookiecutter.project_name|lower|replace(' ','_')|replace('-','_') }}",
 	"distribution_name": "{{ cookiecutter.package_name|replace('_','-') }}",
-	"repo_name": "2019fa-{{ cookiecutter.project_name }}-{{ cookiecutter.your_github_username }}",
-	"repo_hosting": "github.com",
-	"repo_hosting_domain": "{{ cookiecutter.repo_hosting if cookiecutter.repo_hosting != 'other domain not listed' else '' }}",
+	"repo_name": "2019fa-{{ cookiecutter.project_name|lower|replace(' ','_') }}-{{ cookiecutter.your_github_username }}",
     "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '_') }}",
-    "project_short_description": "A short description of the project",
-	"install_csci_utils": "yes",
-	"allow_tests_inside_package": "yes",
-	"travis": "yes",
-	"codecov": ["yes", "no"],
-	"command_line_interface_bin_name": "{{ cookiecutter.distribution_name }}",
-	"test_runner": "pytest",
+	"install_csci_utils": ["yes", "no"],
 	
 	"_extensions": ["jinja2_time.TimeExtension"]
 }
