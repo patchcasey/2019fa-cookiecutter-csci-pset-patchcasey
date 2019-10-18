@@ -1,6 +1,7 @@
 from contextlib import contextmanager
 
 import os
+import sys
 import subprocess
 import shlex
 from cookiecutter.utils import rmtree
