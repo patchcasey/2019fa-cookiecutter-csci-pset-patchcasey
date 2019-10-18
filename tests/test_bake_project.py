@@ -2,6 +2,7 @@ from contextlib import contextmanager
 
 import os
 import subprocess
+import shlex
 
 
 @contextmanager
@@ -37,7 +38,7 @@ def run_inside_dir(command, dirpath):
     :param dirpath: String, path of the directory the command is being run.
     """
     with inside_dir(dirpath):
-        return subprocess.check_call(shlex.split(command))
+        return subprocess.check_call(shlex.split(command))	
 		
 def test_bake_and_run_tests(cookies):
     with bake_in_temp_dir(cookies) as result:
