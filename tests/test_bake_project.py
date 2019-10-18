@@ -34,8 +34,7 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
         rmtree(str(result.project))
 		
 def test_bake_with_defaults(cookies):
-	"""taken from cookiecutter python template
-	https://github.com/audreyr/cookiecutter-pypackage/blob/master/tests/test_bake_project.py"""
+	# taken from cookiecutter python template https://github.com/audreyr/cookiecutter-pypackage/blob/master/tests/test_bake_project.py
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
         assert result.exit_code == 0
@@ -45,7 +44,6 @@ def test_bake_with_defaults(cookies):
         assert 'Pipfile' in found_toplevel_files
         assert 'test_pset.py' in found_toplevel_files
         assert 'pytest.ini' in found_toplevel_files
-
 
 def test_project_tree(cookies):
     result = cookies.bake(extra_context={"repo_name": "test_project"})
