@@ -16,6 +16,25 @@ def inside_dir(dirpath):
         yield
     finally:
         os.chdir(old_path)
+		
+@contextmanager
+def bake_in_temp_dir(cookies, *args, **kwargs):
+    """
+    Delete the temporal directory that is created when executing the tests
+    :param cookies: pytest_cookies.Cookies,
+        cookie to be baked and its temporal files will be removed
+    """
+    result = cookies.bake(*args, **kwargs)
+    try:
+        yield result
+    finally:
+        rmtree(str(result.project))
+		
+def test_bake_and_run_tests(cookies):
+    with bake_in_temp_dir(cookies) as result:
+        assert result.project.isdir()
+        run_inside_dir('python setup.py test', str(result.project)) == 0
+        print("test_bake_and_run_tests path", str(result.project))
 
 
 def test_project_tree(cookies):
