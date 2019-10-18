@@ -1,5 +1,9 @@
 # Cookiecutter for CSCI Psets
 
+[![Build Status](https://travis-ci.com/csci-e-29/2019fa-cookiecutter-csci-pset-patchcasey.svg?token=5ichzqk8s8tsSTcNuNkm&branch=master)](https://travis-ci.com/csci-e-29/2019fa-cookiecutter-csci-pset-patchcasey)
+[![Maintainability](https://api.codeclimate.com/v1/badges/eec34c3979952dd7ad04/maintainability)](https://codeclimate.com/repos/5da9140f529bf4018e001a87/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/eec34c3979952dd7ad04/test_coverage)](https://codeclimate.com/repos/5da9140f529bf4018e001a87/test_coverage)
+
 This component assignment is for your own cookiecutter fork.
 
 We will customize our own cookiecutter repo, and use it to bootstrap our pset
