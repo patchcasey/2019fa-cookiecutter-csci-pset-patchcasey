@@ -2,7 +2,7 @@ from contextlib import contextmanager
 
 import os
 import sys
-import subprocess	
+import subprocess
 import shlex
 from cookiecutter.utils import rmtree
 
@@ -19,7 +19,7 @@ def inside_dir(dirpath):
         yield
     finally:
         os.chdir(old_path)
-		
+
 @contextmanager
 def bake_in_temp_dir(cookies, *args, **kwargs):
     """
@@ -32,20 +32,20 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
         yield result
     finally:
         rmtree(str(result.project))
-		
-def test_bake_with_defaults(cookies):
-	# taken from cookiecutter python template https://github.com/audreyr/cookiecutter-pypackage/blob/master/tests/test_bake_project.py
-    result = cookies.bake(extra_context={"repo_name": "test_project"})
-	assert result.project.isdir()
-	assert result.exit_code == 0
-	assert result.exception is None
 
-	with open("Pipfile", "r") as f:
+def test_bake_with_defaults(cookies):
+    # taken from cookiecutter python template https://github.com/audreyr/cookiecutter-pypackage/blob/master/tests/test_bake_project.py
+    result = cookies.bake(extra_context={"repo_name": "test_project"})
+    assert result.project.isdir()
+    assert result.exit_code == 0
+    assert result.exception is None
+
+    with open("Pipfile", "r") as f:
         lines = f.readlines()
-	for x in lines:
-		if x.find("csci-utils") = 0:
-			raise AssertionError
-		
+    for x in lines:
+        if x.find("csci-utils") = 0:
+            raise AssertionError
+
 def test_bake_with_defaults(cookies):
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
