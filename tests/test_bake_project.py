@@ -43,7 +43,7 @@ def test_bake_with_defaults(cookies):
     with open("Pipfile", "r") as f:
         lines = f.readlines()
     for x in lines:
-        if x.find("csci-utils") = 0:
+        if x.find("csci-utils") == 0:
             raise AssertionError
 
 def test_bake_with_defaults(cookies):
