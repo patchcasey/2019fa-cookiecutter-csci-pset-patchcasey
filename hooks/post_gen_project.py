@@ -1,5 +1,3 @@
-from atomicwrites import atomic_write
-
 if __name__ == "__main__":
 
     if "{{cookiecutter.install_csci_utils}}" == "no":
@@ -7,7 +5,7 @@ if __name__ == "__main__":
         with open("Pipfile", "r") as f:
             lines = f.readlines()
         lines_to_write = [x for x in lines if x.find("csci-utils") != 0]
-        with atomic_write("Pipfile", overwrite=True) as f:
+        with open("Pipfile", "w") as f:
             # this just rewrites the file but excludes the line that involves csci_utils
             for line in lines_to_write:
                 f.write(line)
